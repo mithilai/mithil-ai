@@ -21,7 +21,7 @@ export function YouTubeSection() {
         </div>
         <div className="text-center">
           <Button asChild size="lg" variant="outline" className="shadow-md hover:shadow-lg transition-shadow">
-            <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.youtube.com/@ScientificMyth" target="_blank" rel="noopener noreferrer">
               <YoutubeIcon className="mr-2 h-5 w-5" /> More on YouTube
             </Link>
           </Button>

@@ -20,7 +20,6 @@ export function Footer() {
           </Link>
         </div>
         <p>&copy; {new Date().getFullYear()} Mithil Maske. All rights reserved.</p>
-        <p>Built by AI Explorer</p>
       </div>
     </footer>
   );

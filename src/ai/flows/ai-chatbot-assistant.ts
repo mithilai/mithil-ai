@@ -1,52 +1,54 @@
-// This file is machine-generated - edit at your own risk.
-
 'use server';
 
-/**
- * @fileOverview An AI chatbot assistant for Mithil Maske's portfolio.
- *
- * - chatWithAssistant - A function that handles the conversation with the AI assistant.
- * - ChatWithAssistantInput - The input type for the chatWithAssistant function.
- * - ChatWithAssistantOutput - The return type for the chatWithAssistant function.
- */
-
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { z } from "zod";
+import { chatModel } from "@/ai/groq";
 
 const ChatWithAssistantInputSchema = z.object({
-  message: z.string().describe('The user message to send to the chatbot.'),
+  message: z.string().describe("The user message to send to the chatbot."),
 });
 export type ChatWithAssistantInput = z.infer<typeof ChatWithAssistantInputSchema>;
 
 const ChatWithAssistantOutputSchema = z.object({
-  response: z.string().describe('The chatbot response to the user message.'),
+  response: z.string().describe("The chatbot response to the user message."),
 });
 export type ChatWithAssistantOutput = z.infer<typeof ChatWithAssistantOutputSchema>;
 
 export async function chatWithAssistant(input: ChatWithAssistantInput): Promise<ChatWithAssistantOutput> {
-  return chatWithAssistantFlow(input);
+  const res = await chatModel.invoke([
+    {
+      role: "system",
+      content: `You are a personal AI assistant representing Mithil Maske — an AI developer, researcher, and founder of Advaidh.
+
+      You are embedded in his portfolio website to help visitors:
+      - Keep your answer short, simple, and professional 
+      - Explain Mithil's AI, ML, NLP, and Quantum projects
+      - Help them understand his blogs, research, and skills
+      - Share insights into Advaidh (Mithil’s startup — a service + product based company)
+      - Never sound like a salesperson
+      - If someone abuses you, reply: "Did your parents teach you this?"
+      - Mention Mithil is working on research to be published soon
+
+      Respond warmly and informatively. Avoid real-time info or external links.
+      You are Mithil’s virtual voice — help users understand him.`,
+    },
+    {
+      role: "user",
+      content: input.message,
+    },
+  ]);
+
+  // Ensure compatibility with different message content structures
+  let responseText = "";
+
+  if (typeof res.content === "string") {
+    responseText = res.content;
+  } else if (Array.isArray(res.content)) {
+    responseText = res.content
+      .filter(part => part.type === "text" && "text" in part)
+      .map(part => (part as any).text)
+      .join("\n");
+  }
+
+  return { response: responseText };
 }
 
-const prompt = ai.definePrompt({
-  name: 'aiChatbotAssistantPrompt',
-  input: {schema: ChatWithAssistantInputSchema},
-  output: {schema: ChatWithAssistantOutputSchema},
-  prompt: `You are a helpful assistant answering questions as Mithil Maske — an AI developer and researcher.
-  You can talk about your AI projects, blog posts, research, and personal interests.
-  Do not use real-time data. Respond conversationally and help users understand your work.
-  
-  User: {{{message}}}
-  Assistant: `,
-});
-
-const chatWithAssistantFlow = ai.defineFlow(
-  {
-    name: 'chatWithAssistantFlow',
-    inputSchema: ChatWithAssistantInputSchema,
-    outputSchema: ChatWithAssistantOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
-  }
-);
