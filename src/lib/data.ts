@@ -3,11 +3,11 @@ import type { BlogPost, ResearchPaper, YouTubeVideo } from '@/types';
 export const blogPosts: BlogPost[] = [
   {
     id: '1',
-    title: 'The Future of Generative AI',
-    date: 'October 26, 2023',
-    slug: 'future-of-generative-ai',
-    description: 'Exploring the next wave of generative models and their potential impact on various industries.',
-    link: '/blogs/future-of-generative-ai',
+    title: 'Stealth Scrapping',
+    date: 'June 16, 2025',
+    slug: 'stealth-scrapping',
+    description: 'Exploring the power of stealth scrapping',
+    link: 'https://medium.com/@mithilmaske/stealth-scraping-bypassing-anti-bot-detection-while-mining-flipkart-reviews-6c8b6b7a75cc',
     imageUrl: 'https://picsum.photos/seed/blog1/600/400',
   },
   {

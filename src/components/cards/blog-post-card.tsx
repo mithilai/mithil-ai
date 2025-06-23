@@ -43,7 +43,14 @@
 // }
 
 import type { BlogPost } from '@/types';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -54,6 +61,9 @@ interface BlogPostCardProps {
 }
 
 export function BlogPostCard({ post }: BlogPostCardProps) {
+  const isExternal = post.link?.startsWith('http');
+  const href = isExternal ? post.link : `/blog/${post.slug}`;
+
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
       {post.imageUrl && (
@@ -77,7 +87,11 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
       </CardContent>
       <CardFooter>
         <Button asChild variant="link" className="text-primary p-0 h-auto">
-          <Link href={`/blog/${post.slug}`}>
+          <Link
+            href={href}
+            target={isExternal ? '_blank' : '_self'}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
+          >
             Read More <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
