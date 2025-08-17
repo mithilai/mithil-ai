@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: '2',
     title: 'Breaking Into the Shadow DOM with Selenium',
-    date: 'Augest 5, 2025',
+    date: 'Augest 05, 2025',
     slug: 'handling-shadow-dom-in-selenium',
     description: 'A step-by-step guide to handling Shadow DOM in Selenium and automating hidden elements like cookie consent popups.',
     link: 'https://medium.com/@mithilmaske/fighting-cookies-inside-the-shadow-realm-492be11f881b',
@@ -21,12 +21,12 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '3',
-    title: 'Getting Started with Reinforcement Learning',
-    date: 'August 02, 2023',
-    slug: 'reinforcement-learning-basics',
-    description: 'A beginner-friendly guide to understanding the core concepts of reinforcement learning.',
-    link : '/blogs/reinforcement-learning-basics',
-    imageUrl: 'https://picsum.photos/seed/blog3/600/400',
+    title: 'ManTraNet and the Hunt for Digital Fakes',
+    date: 'August 08, 2025',
+    slug: 'image-forgery-detection-mantranet',
+    description: 'A quick dive into how ManTraNet spots fake photos and exposes edits with sharp accuracy.',
+    link : 'https://medium.com/@mithilmaske/image-forgery-detection-with-mantranet-676793fa3206',
+    imageUrl: '/ChatGPT Image Aug 18, 2025, 12_36_00 AM.png',
   },
 ];
 
