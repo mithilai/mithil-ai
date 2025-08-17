@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'image-forgery-detection-mantranet',
     description: 'A quick dive into how ManTraNet spots fake photos and exposes edits with sharp accuracy.',
     link : 'https://medium.com/@mithilmaske/image-forgery-detection-with-mantranet-676793fa3206',
-    imageUrl: '/ChatGPT Image Aug 18, 2025, 12_36_00 AM.png',
+    imageUrl: '/mantranetblog.png',
   },
 ];
 
