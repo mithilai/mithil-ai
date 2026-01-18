@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'stealth-scrapping',
     description: 'Learn how to scrape Flipkart reviews stealthily by bypassing anti-bot detection with Python, using practical techniques to stay undetected and efficient.',
     link: 'https://medium.com/@mithilmaske/stealth-scraping-bypassing-anti-bot-detection-while-mining-flipkart-reviews-6c8b6b7a75cc',
-    imageUrl: '/flipkartstealth.png',
+    imageUrl: '/review-scrap-blog.png',
   },
   {
     id: '2',
@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'handling-shadow-dom-in-selenium',
     description: 'A step-by-step guide to handling Shadow DOM in Selenium and automating hidden elements like cookie consent popups.',
     link: 'https://medium.com/@mithilmaske/fighting-cookies-inside-the-shadow-realm-492be11f881b',
-    imageUrl: '/shadowdomthumbnail.png',
+    imageUrl: '/shadowdom-blog.png',
   },
   {
     id: '3',
@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'image-forgery-detection-mantranet',
     description: 'A quick dive into how ManTraNet spots fake photos and exposes edits with sharp accuracy.',
     link : 'https://medium.com/@mithilmaske/image-forgery-detection-with-mantranet-676793fa3206',
-    imageUrl: '/mantranetblog.png',
+    imageUrl: '/foregery-blog.png',
   },
 ];
 
